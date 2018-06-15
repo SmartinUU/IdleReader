@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MyFragmentAdapter adapter = new MyFragmentAdapter(getSupportFragmentManager(), fragments);
         vp_content.setAdapter(adapter);
         vp_content.setOffscreenPageLimit(2);   //预加载
-
+        vp_content.addOnPageChangeListener(this);
         setCurrentItem(0);
     }
 

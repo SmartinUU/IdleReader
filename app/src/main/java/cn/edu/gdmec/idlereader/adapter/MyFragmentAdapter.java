@@ -17,11 +17,12 @@ public class MyFragmentAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments = new ArrayList<>();
     private List<String> fragmentTitles = new ArrayList<>();
 
-    public MyFragmentAdapter(FragmentManager fm,List<Fragment> fragments) {
+    public MyFragmentAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
     }
-    public MyFragmentAdapter(FragmentManager fm,List<Fragment> fragments,List<String> fragmentTitles) {
+
+    public MyFragmentAdapter(FragmentManager fm, List<Fragment> fragments, List<String> fragmentTitles) {
         super(fm);
         this.fragments = fragments;
         this.fragmentTitles = fragmentTitles;
@@ -46,9 +47,9 @@ public class MyFragmentAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        if(fragmentTitles!=null){
+        if (fragmentTitles != null) {
             return fragmentTitles.get(position);
-        }else{
+        } else {
             return "";
         }
     }
