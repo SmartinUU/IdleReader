@@ -3,7 +3,6 @@ package cn.edu.gdmec.idlereader;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,10 +10,9 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-import cn.edu.gdmec.idlereader.adapter.MyFragmentAdapter;
-import cn.edu.gdmec.idlereader.fragment.MovieFragment;
-import cn.edu.gdmec.idlereader.fragment.NewsFragment;
-import cn.edu.gdmec.idlereader.fragment.VideoFragment;
+import cn.edu.gdmec.idlereader.Movie.MovieFragment;
+import cn.edu.gdmec.idlereader.News.NewsFragment;
+import cn.edu.gdmec.idlereader.Video.VideoFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
 

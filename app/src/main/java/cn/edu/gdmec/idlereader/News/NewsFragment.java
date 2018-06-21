@@ -1,4 +1,4 @@
-package cn.edu.gdmec.idlereader.fragment;
+package cn.edu.gdmec.idlereader.News;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,13 +9,12 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.gdmec.idlereader.R;
-import cn.edu.gdmec.idlereader.adapter.MyFragmentAdapter;
+import cn.edu.gdmec.idlereader.MyFragmentAdapter;
 
 /**
  * Created by apple on 18/6/15.

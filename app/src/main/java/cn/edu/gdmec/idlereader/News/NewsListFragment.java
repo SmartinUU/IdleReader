@@ -1,4 +1,4 @@
-package cn.edu.gdmec.idlereader.fragment;
+package cn.edu.gdmec.idlereader.News;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

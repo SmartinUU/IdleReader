@@ -1,4 +1,4 @@
-package cn.edu.gdmec.idlereader.adapter;
+package cn.edu.gdmec.idlereader;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
