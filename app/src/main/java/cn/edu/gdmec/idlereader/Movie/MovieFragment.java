@@ -21,12 +21,10 @@ import cn.edu.gdmec.idlereader.R;
  * Created by apple on 18/6/15.
  */
 
-public class MovieFragment extends Fragment implements IMovieView{
-    private TextView tv_news;
+public class MovieFragment extends Fragment implements IMovieView {
     private MoviePresenter presenter;
     private SwipeRefreshLayout srl_movie;
     private TextView tv_movie;
-    private SwipeRefreshLayout srl_news;
 
     @Nullable
     @Override
@@ -41,10 +39,10 @@ public class MovieFragment extends Fragment implements IMovieView{
         srl_movie = view.findViewById(R.id.srl_movie);
         srl_movie.setColorSchemeColors(Color.parseColor("#ffce3d3a"));
         presenter = new MoviePresenter(this);
-        srl_news.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        srl_movie.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-              presenter.loadMovie("movie","in_theaters");
+                presenter.loadMovie("movie", "in_theaters");
             }
         });
 
@@ -52,21 +50,24 @@ public class MovieFragment extends Fragment implements IMovieView{
 
     @Override
     public void showMovie(MovieBean movieBean) {
-
+       /* tv_movie.setText("电影：" + movieBean.getSubjects().get(0).getTitle() + "\n"
+                + movieBean.getSubjects().get(0).getCasts().get(3).getAlt());*/
+       /* tv_movie.setText("电影：" + movieBean.getSubjects().get(0).getTitle() + "\n"
+                + movieBean.getSubjects().get(0).getCasts().get(3).getAlt());*/
     }
 
     @Override
     public void hideDialog() {
-
+        srl_movie.setRefreshing(false);
     }
 
     @Override
     public void showDialog() {
-
+        srl_movie.setRefreshing(true);
     }
 
     @Override
     public void showErrorMsg(String error) {
-
+        tv_movie.setText("加载失败：" + error);
     }
 }
