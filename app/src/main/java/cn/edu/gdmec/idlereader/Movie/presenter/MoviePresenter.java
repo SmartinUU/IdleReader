@@ -11,7 +11,7 @@ import cn.edu.gdmec.idlereader.Movie.model.MovieModel;
 import cn.edu.gdmec.idlereader.Movie.view.IMovieView;
 import cn.edu.gdmec.idlereader.News.NewsFragment;
 
-public class MoviePresenter implements IMovieModel, IMovieLoadListener {
+public class MoviePresenter implements IMoviePresenter, IMovieLoadListener {
     private IMovieModel iMovieModel;
     private IMovieView iMovieView;
 
@@ -35,8 +35,7 @@ public class MoviePresenter implements IMovieModel, IMovieLoadListener {
     }
 
     @Override
-    public void loadNews(String type, String in_theaters, IMovieLoadListener iMovieLoadListener) {
-        iMovieView.showDialog();
-        iMovieModel.loadNews(type, in_theaters, this);
+    public void loadMovie(String type, String in_theaters) {
+        iMovieModel.loadMovie(type, in_theaters, this);
     }
 }
