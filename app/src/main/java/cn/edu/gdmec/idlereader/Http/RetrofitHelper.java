@@ -1,7 +1,10 @@
 package cn.edu.gdmec.idlereader.Http;
 
+import android.graphics.Movie;
+
 import java.util.concurrent.TimeUnit;
 
+import cn.edu.gdmec.idlereader.Bean.MovieBean;
 import cn.edu.gdmec.idlereader.Bean.NewsBean;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -24,6 +27,11 @@ public class RetrofitHelper {
     public Call<NewsBean> getNews(String type, String id, int startPage) {
         return retrofitService.getNews(type, id, startPage);
     }
+
+    public Call<MovieBean> getMovie(String type, String in_theaters) {
+        return retrofitService.getMovie(type, in_theaters);
+    }
+
 
     public static OkHttpClient getOkHttpClient() {
         if (okHttpClient == null) {

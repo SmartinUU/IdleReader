@@ -1,5 +1,6 @@
 package cn.edu.gdmec.idlereader.Http;
 
+import cn.edu.gdmec.idlereader.Bean.MovieBean;
 import cn.edu.gdmec.idlereader.Bean.NewsBean;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -12,4 +13,9 @@ public interface RetrofitService {
     Call<NewsBean> getNews(@Path("type") String type,
                            @Path("id") String id,
                            @Path("startPage") int startPage);
+
+    //https://api.douban.com/v2/movie/in_theaters
+    @GET("v2/{type}/{in_theaters}")
+    Call<MovieBean> getMovie(@Path("type") String type,
+                             @Path("in_theaters") String in_theaters);
 }

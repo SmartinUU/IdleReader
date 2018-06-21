@@ -44,7 +44,6 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
             case NewsFragment.NEWS_TYPE_JOKES:
                 iNewsModel.loadNews("list", startPage, Api.JOKE_ID, this);
                 break;
-
         }
     }
 }
