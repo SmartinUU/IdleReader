@@ -1,8 +1,7 @@
 package cn.edu.gdmec.idlereader.Bean;
 
 import java.util.List;
-//由于网易新闻返回的数据里不同类型的新闻id会不同，所以使用一个NewsBean会有冲突
-//直接在NewsBean里写三个不同的get、set方法
+
 public class NewsBean {
     //头条
     private List<Bean> T1348647909107;
@@ -10,7 +9,8 @@ public class NewsBean {
     private List<Bean> T1348649145984;
     //笑话
     private List<Bean> T1350383429665;
-    public List<Bean> getT1348647909107() {
+
+    public List<Bean> getTop() {
         return T1348647909107;
     }
 
@@ -19,7 +19,7 @@ public class NewsBean {
         return this;
     }
 
-    public List<Bean> getT1348649145984() {
+    public List<Bean> getNba() {
         return T1348649145984;
     }
 
@@ -28,7 +28,7 @@ public class NewsBean {
         return this;
     }
 
-    public List<Bean> getT1350383429665() {
+    public List<Bean> getJoke() {
         return T1350383429665;
     }
 
@@ -41,44 +41,43 @@ public class NewsBean {
     public static class Bean {
         /**
          * template : normal1
-         * skipID : 00AO0001|2294406
-         * lmodify : 2018-06-21 09:21:51
-         * postid : PHOT260K6000100A
+         * skipID : 00AO0001|2294407
+         * lmodify : 2018-06-21 11:41:40
+         * postid : PHOT260K7000100A
          * source : 视觉中国
-         * title : 叙利亚难民营现状:女孩用锡罐当双腿
-         * mtime : 2018-06-21 09:21:51
+         * title : 马其顿正式更名为"北马其顿共和国"
+         * mtime : 2018-06-21 11:41:40
          * hasImg : 1
          * topic_background : http://img2.cache.netease.com/m/newsapp/reading/cover1/C1348646712614.jpg
          * digest :
-         * photosetID : 00AO0001|2294406
+         * photosetID : 00AO0001|2294407
          * boardid : photoview_bbs
          * alias : Top News
          * hasAD : 1
-         * imgsrc : http://cms-bucket.nosdn.127.net/2018/06/21/64aad71f758944df958e7d4fd9ded1e4.jpeg
-         * ptime : 2018-06-21 09:10:14
+         * imgsrc : http://cms-bucket.nosdn.127.net/2018/06/21/14d72d45faa24524aeea88558d904537.jpeg
+         * ptime : 2018-06-21 09:12:26
          * daynum : 17703
          * hasHead : 1
          * imgType : 1
          * order : 1
          * editor : []
-         * votecount : 30
+         * votecount : 9
          * hasCover : false
-         * docid : 9IG74V5H00963VRO_DKQIL163bjjikeupdateDoc
+         * docid : 9IG74V5H00963VRO_DKQIP1SMbjjikeupdateDoc
          * tname : 头条
          * priority : 555
          * ads : [{"subtitle":"","skipType":"photoset","skipID":"00AP0001|2294400","tag":"photoset","title":"暴雨袭击福州 市民骑车回家如水中行舟","imgsrc":"bigimg","url":"00AP0001|2294400"},{"subtitle":"","skipType":"photoset","skipID":"00AP0001|2294398","tag":"photoset","title":"\u201c8D魔幻重庆\u201d现穿楼人工运河","imgsrc":"bigimg","url":"00AP0001|2294398"},{"subtitle":"","skipType":"photoset","skipID":"00AP0001|2294397","tag":"photoset","title":"鄱阳湖结束禁渔期 渔船集中出湖捕捞","imgsrc":"bigimg","url":"00AP0001|2294397"},{"subtitle":"","skipType":"photoset","skipID":"00AO0001|2294395","tag":"photoset","title":"梅根出席皇家赛马会 与哈里\"撒狗粮\"","imgsrc":"bigimg","url":"00AO0001|2294395"},{"subtitle":"","skipType":"photoset","skipID":"00AP0001|2294379","tag":"photoset","title":"醉汉倒路边现金散一地 念叨:输球了","imgsrc":"bigimg","url":"00AP0001|2294379"}]
          * ename : androidnews
-         * replyCount : 40
-         * imgsum : 6
+         * replyCount : 15
+         * imgsum : 3
          * hasIcon : false
          * skipType : photoset
          * cid : C1348646712614
-         * url_3w : http://news.163.com/18/0620/17/DKOSQKHE00018AOQ.html
-         * url : http://3g.163.com/news/18/0620/17/DKOSQKHE00018AOQ.html
-         * ltitle : 习近平会见朝鲜劳动党委员长金正恩
+         * url_3w : http://news.163.com/18/0621/11/DKQRCHQ4000189FH.html
+         * url : http://3g.163.com/news/18/0621/11/DKQRCHQ4000189FH.html
+         * ltitle : 从浙江实践到中国答卷：习近平引领“赶考”路
          * subtitle :
-         * pixel : 593*428
-         * imgextra : [{"imgsrc":"http://cms-bucket.nosdn.127.net/2018/06/21/c4c19589d6c24729886fec1cd95c415a.jpeg"},{"imgsrc":"http://cms-bucket.nosdn.127.net/2018/06/21/099b38add207425ba87ad7c256dda9ee.jpeg"}]
+         * pixel : 1080*548
          */
 
         private String template;
@@ -119,7 +118,6 @@ public class NewsBean {
         private String pixel;
         private List<?> editor;
         private List<AdsBean> ads;
-        private List<ImgextraBean> imgextra;
 
         public String getTemplate() {
             return template;
@@ -425,14 +423,6 @@ public class NewsBean {
             this.ads = ads;
         }
 
-        public List<ImgextraBean> getImgextra() {
-            return imgextra;
-        }
-
-        public void setImgextra(List<ImgextraBean> imgextra) {
-            this.imgextra = imgextra;
-        }
-
         public static class AdsBean {
             /**
              * subtitle :
@@ -506,22 +496,6 @@ public class NewsBean {
 
             public void setUrl(String url) {
                 this.url = url;
-            }
-        }
-
-        public static class ImgextraBean {
-            /**
-             * imgsrc : http://cms-bucket.nosdn.127.net/2018/06/21/c4c19589d6c24729886fec1cd95c415a.jpeg
-             */
-
-            private String imgsrc;
-
-            public String getImgsrc() {
-                return imgsrc;
-            }
-
-            public void setImgsrc(String imgsrc) {
-                this.imgsrc = imgsrc;
             }
         }
     }

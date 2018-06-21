@@ -12,7 +12,7 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private INewsModel iNewsModel;
     private INewsView iNewsView;
 
-    public NewsPresenter(INewsModel iNewsModel, INewsView iNewsView) {
+    public NewsPresenter( INewsView iNewsView) {
         this.iNewsModel = new NewsModel();
         this.iNewsView = iNewsView;
     }
