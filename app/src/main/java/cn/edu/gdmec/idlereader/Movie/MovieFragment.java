@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cn.edu.gdmec.idlereader.Bean.MovieBean;
 import cn.edu.gdmec.idlereader.Movie.presenter.MoviePresenter;
@@ -52,8 +53,12 @@ public class MovieFragment extends Fragment implements IMovieView {
     public void showMovie(MovieBean movieBean) {
        /* tv_movie.setText("电影：" + movieBean.getSubjects().get(0).getTitle() + "\n"
                 + movieBean.getSubjects().get(0).getCasts().get(3).getAlt());*/
-       /* tv_movie.setText("电影：" + movieBean.getSubjects().get(0).getTitle() + "\n"
-                + movieBean.getSubjects().get(0).getCasts().get(3).getAlt());*/
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                tv_movie.setText("电影：");
+            }
+        });
     }
 
     @Override

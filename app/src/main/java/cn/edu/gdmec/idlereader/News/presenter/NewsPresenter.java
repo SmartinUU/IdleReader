@@ -12,7 +12,7 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private INewsModel iNewsModel;
     private INewsView iNewsView;
 
-    public NewsPresenter( INewsView iNewsView) {
+    public NewsPresenter(INewsView iNewsView) {
         this.iNewsModel = new NewsModel();
         this.iNewsView = iNewsView;
     }
@@ -34,15 +34,16 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNews(int type, int startPage) {
         iNewsView.showDialog();
+        iNewsModel.loadNews("headline", Api.HEADLINE_ID, startPage, this);
         switch (type) {
             case NewsFragment.NEWS_TYPE_TOP:
-                iNewsModel.loadNews("headline", startPage, Api.HEADLINE_ID, this);
+
                 break;
             case NewsFragment.NEWS_TYPE_NBA:
-                iNewsModel.loadNews("list", startPage, Api.NBA_ID, this);
+                iNewsModel.loadNews("list", Api.NBA_ID, startPage, this);
                 break;
             case NewsFragment.NEWS_TYPE_JOKES:
-                iNewsModel.loadNews("list", startPage, Api.JOKE_ID, this);
+                iNewsModel.loadNews("list", Api.JOKE_ID, startPage, this);
                 break;
         }
     }

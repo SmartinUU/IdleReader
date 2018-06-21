@@ -1,6 +1,7 @@
 package cn.edu.gdmec.idlereader.Movie.presenter;
 
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import cn.edu.gdmec.idlereader.Bean.MovieBean;
 import cn.edu.gdmec.idlereader.Bean.NewsBean;
@@ -36,6 +37,7 @@ public class MoviePresenter implements IMoviePresenter, IMovieLoadListener {
 
     @Override
     public void loadMovie(String type, String in_theaters) {
+        iMovieView.showDialog();
         iMovieModel.loadMovie(type, in_theaters, this);
     }
 }
