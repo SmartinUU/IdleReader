@@ -34,10 +34,9 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNews(int type, int startPage) {
         iNewsView.showDialog();
-        iNewsModel.loadNews("headline", Api.HEADLINE_ID, startPage, this);
         switch (type) {
             case NewsFragment.NEWS_TYPE_TOP:
-
+                iNewsModel.loadNews("headline", Api.HEADLINE_ID, startPage, this);
                 break;
             case NewsFragment.NEWS_TYPE_NBA:
                 iNewsModel.loadNews("list", Api.NBA_ID, startPage, this);

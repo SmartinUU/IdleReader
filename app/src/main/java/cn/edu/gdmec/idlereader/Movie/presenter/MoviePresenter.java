@@ -1,16 +1,11 @@
 package cn.edu.gdmec.idlereader.Movie.presenter;
 
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import cn.edu.gdmec.idlereader.Bean.MovieBean;
-import cn.edu.gdmec.idlereader.Bean.NewsBean;
-import cn.edu.gdmec.idlereader.Http.Api;
 import cn.edu.gdmec.idlereader.Movie.model.IMovieLoadListener;
 import cn.edu.gdmec.idlereader.Movie.model.IMovieModel;
 import cn.edu.gdmec.idlereader.Movie.model.MovieModel;
 import cn.edu.gdmec.idlereader.Movie.view.IMovieView;
-import cn.edu.gdmec.idlereader.News.NewsFragment;
 
 public class MoviePresenter implements IMoviePresenter, IMovieLoadListener {
     private IMovieModel iMovieModel;
