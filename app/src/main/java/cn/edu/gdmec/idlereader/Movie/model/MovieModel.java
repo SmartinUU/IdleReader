@@ -9,9 +9,9 @@ import retrofit2.Response;
 
 public class MovieModel implements IMovieModel {
     @Override
-    public void loadMovie(String type, String in_theaters, final IMovieLoadListener iMovieLoadListener) {
+    public void loadMovie(String total, final IMovieLoadListener iMovieLoadListener) {
         RetrofitHelper retrofitHelper = new RetrofitHelper(Api.MOVIE_HOST);
-        retrofitHelper.getMovie(type, in_theaters).enqueue(new Callback<MovieBean>() {
+        retrofitHelper.getMovie(total).enqueue(new Callback<MovieBean>() {
             @Override
             public void onResponse(Call<MovieBean> call, Response<MovieBean> response) {
                 iMovieLoadListener.success(response.body());

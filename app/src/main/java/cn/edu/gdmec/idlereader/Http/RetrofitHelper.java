@@ -28,10 +28,9 @@ public class RetrofitHelper {
         return retrofitService.getNews(type, id, startPage);
     }
 
-    public Call<MovieBean> getMovie(String type, String in_theaters) {
-        return retrofitService.getMovie(type, in_theaters);
+    public Call<MovieBean> getMovie(String total) {
+        return retrofitService.getMovie(total);
     }
-
 
     public static OkHttpClient getOkHttpClient() {
         if (okHttpClient == null) {

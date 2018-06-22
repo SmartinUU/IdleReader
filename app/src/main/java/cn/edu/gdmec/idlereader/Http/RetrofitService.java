@@ -15,7 +15,10 @@ public interface RetrofitService {
                            @Path("startPage") int startPage);
 
     //https://api.douban.com/v2/movie/in_theaters
-    @GET("v2/{type}/{in_theaters}")
-    Call<MovieBean> getMovie(@Path("type") String type,
-                             @Path("in_theaters") String in_theaters);
+    //可能1 v2前少了/
+    @GET("v2/movie/{total}")
+    Call<MovieBean> getMovie(@Path("total") String total);
+
+
+
 }

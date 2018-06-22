@@ -44,20 +44,19 @@ public class MovieFragment extends Fragment implements IMovieView {
         srl_movie.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.loadMovie("movie", "in_theaters");
+                presenter.loadMovie("in_theaters");
             }
         });
 
     }
 
     @Override
-    public void showMovie(MovieBean movieBean) {
-       /* tv_movie.setText("电影：" + movieBean.getSubjects().get(0).getTitle() + "\n"
-                + movieBean.getSubjects().get(0).getCasts().get(3).getAlt());*/
+    public void showMovie(final MovieBean movieBean) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                tv_movie.setText("电影：");
+                tv_movie.setText("电影：" + movieBean.getSubjects().get(0).getTitle() + "\n" +
+                        movieBean.getSubjects().get(0).getDirectors());//
             }
         });
     }
