@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--每一个新闻怎么做到卡片显示呢？这里我们用到了控件cardView。
-cardView的使用非常简单，我把一些设置直接写在布局里了，不需要写别的逻辑代码，只要把item_news里的东西包裹进去就好了。-->
+<!---->
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cv_news"
