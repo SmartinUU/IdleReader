@@ -1,7 +1,9 @@
 package cn.edu.gdmec.idlereader.News;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.edu.gdmec.idlereader.ADetailActivity;
 import cn.edu.gdmec.idlereader.Bean.NewsBean;
 import cn.edu.gdmec.idlereader.R;
 
@@ -41,7 +44,7 @@ public class ItemNewsAdapter extends RecyclerView.Adapter<ItemNewsAdapter.ItemNe
 
     @Override
     public void onBindViewHolder(@NonNull ItemNewsHolder holder, int position) {
-        NewsBean.Bean bean = objects.get(position);
+        final NewsBean.Bean bean = objects.get(position);
         if (bean == null) {
             return;
         }
@@ -49,14 +52,23 @@ public class ItemNewsAdapter extends RecyclerView.Adapter<ItemNewsAdapter.ItemNe
         Glide.with(context)
                 .load(bean.getImgsrc())
                 .into(holder.ivNewsImg);
-        if (position == 0) {
+       /* if (position == 0) {
             //第一个item不显示新闻描述
             holder.tvNewsTitle.setText("图片" + bean.getTitle());
             holder.tvNewsDigest.setVisibility(View.GONE);
-        } else {
-            holder.tvNewsTitle.setText(bean.getTitle());
-            holder.tvNewsDigest.setText(bean.getMtime() + ":" + bean.getDigest());
-        }
+        } else {*/
+        holder.tvNewsTitle.setText(bean.getTitle());
+        holder.tvNewsDigest.setText(bean.getMtime() + ":" + bean.getDigest());
+        holder.cvNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ADetailActivity.class);
+                intent.putExtra("url", bean.getUrl());
+                intent.putExtra("title", bean.getTitle());
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -68,12 +80,14 @@ public class ItemNewsAdapter extends RecyclerView.Adapter<ItemNewsAdapter.ItemNe
         private ImageView ivNewsImg;
         private TextView tvNewsTitle;
         private TextView tvNewsDigest;
+        private CardView cvNews;
 
         public ItemNewsHolder(View itemView) {
             super(itemView);
             ivNewsImg = itemView.findViewById(R.id.iv_news_img);
             tvNewsTitle = itemView.findViewById(R.id.tv_news_title);
             tvNewsDigest = itemView.findViewById(R.id.tv_news_digest);
+            cvNews = itemView.findViewById(R.id.cv_news);
         }
     }
 }
