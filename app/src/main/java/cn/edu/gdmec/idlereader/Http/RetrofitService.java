@@ -21,6 +21,4 @@ public interface RetrofitService {
     @GET("v2/movie/{total}")
     Observable<MovieBean> getMovie(@Path("total") String total);
 
-
-
 }
