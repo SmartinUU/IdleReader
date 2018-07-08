@@ -30,6 +30,8 @@ public class MovieFragment extends Fragment implements IMovieView {
     private SwipeRefreshLayout srl_movie;
     private RecyclerView rv_movie_on;
     private ItemMovieOnAdapter movieOnAdapter;
+    private RecyclerView rv_movie_top;
+    private ItemMovieTopAdapter movieTopAdapter;
 
     @Nullable
     @Override
@@ -47,22 +49,29 @@ public class MovieFragment extends Fragment implements IMovieView {
             @Override
             public void onRefresh() {
                 presenter.loadMovie("in_theaters");
+                presenter.loadMovie("top250");
             }
         });
         rv_movie_on = view.findViewById(R.id.rv_movie_on);
         movieOnAdapter = new ItemMovieOnAdapter(getActivity());
+        rv_movie_top = view.findViewById(R.id.rv_movie_top);
+        movieTopAdapter = new ItemMovieTopAdapter(getActivity());
     }
 
     @Override
     public void showMovie(final MovieBean movieBean) {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                movieOnAdapter.setData(movieBean.getSubjects());
-                rv_movie_on.setLayoutManager(new LinearLayoutManager(getActivity()));
-                rv_movie_on.setAdapter(movieOnAdapter);
-            }
-        });
+        //如果没有这步判断，top的数据会显示在下面，要么判断，要么写个新的获取接口
+        if (movieBean.getTotal() == 250) {
+            //Top250
+            movieTopAdapter.setData(movieBean.getSubjects());
+            rv_movie_top.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+            rv_movie_top.setAdapter(movieTopAdapter);
+        } else {
+            //正在热映
+            movieOnAdapter.setData(movieBean.getSubjects());
+            rv_movie_on.setLayoutManager(new LinearLayoutManager(getActivity()));
+            rv_movie_on.setAdapter(movieOnAdapter);
+        }
     }
 
     @Override

@@ -17,8 +17,8 @@ public interface RetrofitService {
                                  @Path("startPage") int startPage);
 
     //https://api.douban.com/v2/movie/in_theaters
+    //https://api.douban.com/v2/movie/top250
     //可能1 v2前少了/
     @GET("v2/movie/{total}")
     Observable<MovieBean> getMovie(@Path("total") String total);
-
 }
