@@ -9,4 +9,6 @@ public class Api {
     public static final String JOKE_ID = "T1350383429665";
     //电影
     public static final String MOVIE_HOST = "https://api.douban.com/";
+    //视频
+    public static final String TODAY_HOST = "https://is.snssdk.com/api/";
 }
